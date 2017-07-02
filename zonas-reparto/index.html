@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Osushi Delivery, Lo Prado">
+    <link rel="icon" href="../img/favicon.png">
+
+    <title>Zonas de reparto | Osushi.cl</title>
+
+    <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+    <link href="../stylesv1.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+    <span id="top-link-block" class="hidden">
+        <a href="#top" class="well well-sm"  onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
+            <i class="glyphicon glyphicon-chevron-up"></i>
+        </a>
+    </span>
+
+    <div class="fix-menu">
+      <div class="container">
+        <div class="row">
+          <div id="osushi-menuv2" class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+              <div class="navbar-header">
+                <div class="contact-header">
+                  <a class="navbar-brand" href=""><img style="max-width:150px;"src="../img/logo.png"></a>
+                  <a href="tel:+56229263686"><i class="fa fa-phone fa-2x" aria-hidden="true" style="margin-top: 0.6em;"></i></a> <br>
+                  <a href="tel:+56974779905"><i class="fa fa-whatsapp fa-2x" aria-hidden="true"></i></a>
+                </div>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+              </div>
+              <div class="collapse navbar-collapse navbar-menubuilder">
+                <ul class="nav navbar-nav navbar-right">
+                  <li >
+                    <a href="../"><i class="fa fa-home" aria-hidden="true"></i><span class="min-space0">Inicio</a>
+                  </li>
+                  <li>
+                    <a href="../carta"><i class="fa fa-list" aria-hidden="true"></i><span class="min-space0">Carta</a>
+                  </li>
+                  <li class="active">
+                    <a href=""><i class="fa fa-motorcycle" aria-hidden="true"></i><span class="min-space0">Zonas de reparto</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  
+    
+    <div class="map-container-reparto">
+      
+      <div id="map"></div>
+    
+    </div>
+
+    <div class="containerFooter-Map"></div> 
+
+    <footer class="footer1">
+      <div class="footer">
+        <div class="container">
+           <!-- <div class="row"> -->
+                <div class="col-sm-4">
+                    <div class="footer-desc text-center">
+                        <p>
+                            Síguenos en:
+                        </p>
+                    </div>
+                
+                    <ul class="social">
+
+                        <li><a href="https://www.facebook.com/mr.osushi"><i class="fa fa-facebook"></i></a> </li>
+                    </ul>
+                   
+
+                </div>
+
+                <div class="col-sm-4">
+                    <div class="footer-desc text-center">
+                       
+                        <p>
+                            Medios de Pago
+                        </p>
+
+                        <img class="img-thumbnail" src="../img/met_pagos.png" width="180" >
+                    </div>
+                
+                    
+                </div>
+                <div class="col-sm-4">
+                  <div class="footer-desc text-center ">
+                   <p class="pull-xs-left"> <img src="../img/moto.png" width="100"></p>
+                      <p>&middot; Copyright &copy; 2016 Osushi &middot; </p>
+                  </div>
+                </div>  
+            <!--  </div> --><!--/.row--> 
+        </div>
+        
+      
+      <h6 class="text-gray text-center"><small>Designed by <a href="mailto:sebastian.cerdam@usach.cl" class="no-underline" >Sebastián</small></h6>
+      </div>
+    </footer>
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../dist/js/bootstrap.min.js"></script>
+    <script src="../assets/js/vendor/holder.min.js"></script>
+    <script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="https://use.fontawesome.com/b3762f5616.js"></script>
+    <script src="../assets/js/gototopv1.js"></script>
+    
+    <script>
+      function initMap() {
+        var styles = [
+            {
+              stylers: [
+                { saturation: -100 }
+              ]
+            }
+        ];
+
+        var osushi_position = {lat: -33.455317, lng: -70.714239};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          mapTypeControlOptions: {
+            mapTypeIds: ['Styled']
+          },
+          scrollwheel: false,
+          zoom: 13,
+          center: {lat:-33.457592,lng:-70.705608},
+          mapTypeControl: false,
+          mapTypeId: 'Styled'
+
+        });
+        var styledMapType = new google.maps.StyledMapType(styles, { name: 'Styled' });
+        map.mapTypes.set('Styled', styledMapType);
+
+        bounds = new google.maps.LatLngBounds(
+          new google.maps.LatLng(-84.999999, -179.999999), 
+          new google.maps.LatLng(84.999999, 179.999999));
+
+        rect = new google.maps.Rectangle({
+            bounds: bounds,
+            fillColor: "#A10202",
+            fillOpacity: 0.1,
+            strokeWeight: 0,
+            map: map
+        });
+
+        var marker = new google.maps.Marker({
+          position: osushi_position,
+          map: map,
+          icon: '../img/marker_osushi5_tiny.png'
+          
+        });
+        
+        var LoPradoCoords = [
+            {lat:-33.453520,lng: -70.738946},
+            {lat:-33.446555, lng:-70.739612},
+            {lat:-33.445803, lng:-70.740599},
+            {lat:-33.436448,lng:-70.740888},
+            {lat:-33.436384,lng:-70.728885},
+            {lat:-33.437190,lng:-70.727166},
+            {lat:-33.437763,lng:-70.724260},
+            {lat:-33.438614, lng:-70.723724},
+            {lat:-33.438791,lng:-70.722427},
+            {lat:-33.436641,lng:-70.721534},
+            {lat:-33.438205, lng:-70.710261},
+            {lat:-33.438075,lng:-70.707099},
+            {lat:-33.448718,lng:-70.707156},
+            {lat:-33.457374,lng:-70.705549},
+            {lat:-33.458766,lng: -70.711352}
+        ];
+
+        var EstCentralCoords = [
+            {lat:-33.453520,lng: -70.738946},
+            {lat:-33.458766,lng: -70.711352},
+            {lat:-33.457374,lng:-70.705549},
+            {lat:-33.448872, lng:-70.707073},
+            {lat:-33.447919,lng: -70.692248},
+            {lat:-33.444517,lng:-70.691969},
+            {lat:-33.443836, lng:-70.679656},
+            {lat:-33.450848,lng: -70.678959},
+            {lat:-33.450612,lng: -70.677831},
+            {lat:-33.470598,lng:-70.679161},
+            {lat:-33.470657,lng: -70.672932},
+            {lat:-33.476360,lng:-70.673034}, 
+
+            {lat:-33.476037,lng:-70.685174},
+            {lat:-33.481285,lng:-70.712332},
+            {lat:-33.473052,lng:-70.722288},
+            {lat:-33.469540, lng:-70.733457},
+            {lat:-33.468184, lng:-70.731215}
+
+        ];
+
+        
+        var LoPrado = new google.maps.Polygon({
+          paths: LoPradoCoords,
+          strokeColor: '#FF0000',
+          strokeOpacity: 0.8,
+          strokeWeight: 3,
+          fillColor: '#F78181',
+          fillOpacity: 0.35
+        });
+        var EstCentral = new google.maps.Polygon({
+          paths: EstCentralCoords,
+          strokeColor: '#2E2EFE',
+          strokeOpacity: 0.8,
+          strokeWeight: 3,
+          fillColor: '#A9A9F5',
+          fillOpacity: 0.35
+        });
+        LoPrado.setMap(map);
+        EstCentral.setMap(map);
+
+        var marker1 = new google.maps.Marker({
+          position: {lat:-33.468323,lng:-70.705014},
+          map: map,
+          label: { text: 'Estación Central', fontSize: '20px'},
+          icon: '../blank.png'
+          
+        });
+        var marker11 = new google.maps.Marker({
+          position: {lat:-33.474323,lng:-70.702014},
+          map: map,
+          label: { text: '$ 1.500', fontSize: '20px'},
+          icon: '../blank.png'
+          
+        });
+
+        var marker2 = new google.maps.Marker({
+          position: {lat:-33.446667,lng:-70.727741},
+          map: map,
+          label: { text: 'Lo Prado', fontSize: '20px'},
+          icon: '../blank.png'
+          
+        });
+        var marker22 = new google.maps.Marker({
+          position: {lat:-33.452667,lng:-70.727441},
+          map: map,
+          label: { text: '$ 1.000', fontSize: '20px'},
+          icon: '../blank.png'
+          
+        });
+
+      }
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMNSyDQeNOXl1HZI2v153FptyS_MgPSqo&callback=initMap">
+    </script>
+  </body>
+</html>
