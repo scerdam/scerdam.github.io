@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Osushi Delivery, Lo Prado">
-    <meta name="theme-color" content="#db5945">
     <link rel="icon" href="../img/favicon.png">
 
     <title>Zonas de reparto | Osushi.cl</title>
@@ -14,6 +13,7 @@
     <link href="../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <link href="../stylesv1.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
   </head>
 
@@ -35,7 +35,7 @@
                   <a href="tel:+56229263686"><i class="fa fa-phone fa-2x" aria-hidden="true" style="margin-top: 0.6em;"></i></a> <br>
                   <a href="tel:+56974779905"><i class="fa fa-whatsapp fa-2x" aria-hidden="true"></i></a>
                 </div>
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
+                <button type="button" class="navbar-toggle wow bounceIn" data-toggle="collapse" data-target=".navbar-menubuilder">
                   <span class="sr-only">Toggle navigation</span>
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
@@ -61,69 +61,70 @@
       </div>
     </div>
 
-  
-    
+
+
     <div class="map-container-reparto">
-      
+
       <div id="map"></div>
-    
+
     </div>
 
-    <div class="containerFooter-Map"></div> 
+    <div class="containerFooter-Map"></div>
 
     <footer class="footer1">
       <div class="footer">
         <div class="container">
            <!-- <div class="row"> -->
-                <div class="col-sm-4">
+                <div class="col-sm-4 wow fadeInUp">
                     <div class="footer-desc text-center">
                         <p>
                             Síguenos en:
                         </p>
                     </div>
-                
+
                     <ul class="social">
 
                         <li><a href="https://www.facebook.com/mr.osushi"><i class="fa fa-facebook"></i></a> </li>
                     </ul>
-                   
+
 
                 </div>
 
-                <div class="col-sm-4">
+                <div class="col-sm-4 wow fadeInUp">
                     <div class="footer-desc text-center">
-                       
+
                         <p>
                             Medios de Pago
                         </p>
 
                         <img class="img-thumbnail" src="../img/met_pagos.png" width="180" >
                     </div>
-                
-                    
+
+
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-4 wow fadeInUp">
                   <div class="footer-desc text-center ">
                    <p class="pull-xs-left"> <img src="../img/moto.png" width="100"></p>
                       <p>&middot; Copyright &copy; 2016 Osushi &middot; </p>
                   </div>
-                </div>  
-            <!--  </div> --><!--/.row--> 
+                </div>
+            <!--  </div> --><!--/.row-->
         </div>
-        
-      
-      <h6 class="text-gray text-center"><small>Designed by <a href="mailto:sebastian.cerdam@usach.cl" class="no-underline" >Sebastián</small></h6>
+
+
+      <h6 class="text-gray text-center wow fadeIn"><small>Designed by <a href="mailto:sebastian.cerdam@usach.cl" class="no-underline" >Sebastián</small></h6>
       </div>
     </footer>
-  
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="../dist/js/bootstrap.min.js"></script>
     <script src="../assets/js/vendor/holder.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
     <script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
     <script src="https://use.fontawesome.com/b3762f5616.js"></script>
     <script src="../assets/js/gototopv1.js"></script>
-    
+
     <script>
       function initMap() {
         var styles = [
@@ -150,7 +151,7 @@
         map.mapTypes.set('Styled', styledMapType);
 
         bounds = new google.maps.LatLngBounds(
-          new google.maps.LatLng(-84.999999, -179.999999), 
+          new google.maps.LatLng(-84.999999, -179.999999),
           new google.maps.LatLng(84.999999, 179.999999));
 
         rect = new google.maps.Rectangle({
@@ -165,9 +166,9 @@
           position: osushi_position,
           map: map,
           icon: '../img/marker_osushi5_tiny.png'
-          
+
         });
-        
+
         var LoPradoCoords = [
             {lat:-33.453520,lng: -70.738946},
             {lat:-33.446555, lng:-70.739612},
@@ -198,7 +199,7 @@
             {lat:-33.450612,lng: -70.677831},
             {lat:-33.470598,lng:-70.679161},
             {lat:-33.470657,lng: -70.672932},
-            {lat:-33.476360,lng:-70.673034}, 
+            {lat:-33.476360,lng:-70.673034},
 
             {lat:-33.476037,lng:-70.685174},
             {lat:-33.481285,lng:-70.712332},
@@ -208,7 +209,7 @@
 
         ];
 
-        
+
         var LoPrado = new google.maps.Polygon({
           paths: LoPradoCoords,
           strokeColor: '#FF0000',
@@ -233,14 +234,14 @@
           map: map,
           label: { text: 'Estación Central', fontSize: '20px'},
           icon: '../blank.png'
-          
+
         });
         var marker11 = new google.maps.Marker({
           position: {lat:-33.474323,lng:-70.702014},
           map: map,
           label: { text: '$ 1.500', fontSize: '20px'},
           icon: '../blank.png'
-          
+
         });
 
         var marker2 = new google.maps.Marker({
@@ -248,14 +249,14 @@
           map: map,
           label: { text: 'Lo Prado', fontSize: '20px'},
           icon: '../blank.png'
-          
+
         });
         var marker22 = new google.maps.Marker({
           position: {lat:-33.452667,lng:-70.727441},
           map: map,
           label: { text: '$ 1.000', fontSize: '20px'},
           icon: '../blank.png'
-          
+
         });
 
       }
