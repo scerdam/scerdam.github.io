@@ -70,7 +70,7 @@
 
             <div class="test">
                 <br><br><br><br><br><br>
-                <p class="container">Estamos una cuadra del metro<img style="max-width:50px;"src="http://www.capital.cl/wp-content/uploads/2012/09/metro.png">Pajaritos</p>
+                <p class="container">Estamos una cuadra del metro<img style="max-width:50px;"src="img/metro1.png">Pajaritos</p>
 
             </div>
 
@@ -153,11 +153,11 @@
           <h4><i class="fa fa-whatsapp fa-3x" aria-hidden="true" style=" vertical-align: middle;"></i><span class="min-space1">+569  747 799 05</h4>
           <br>
           <br>
+          <h4><i class="fa fa-location-arrow" aria-hidden="true"></i><span class="min-space0">Santa Marta #52 , Lo Prado </h4>
+          <br>
           <h4><i class="fa fa-clock-o" aria-hidden="true"></i><span class="min-space0">Horario de atención: </h4>
           <h5>Lunes a Jueves de 17:30 - 23:30 </h5>
           <h5>Viernes y Sábado de 17:30 - 01:00 </h5>
-          <br>
-          <h4><i class="fa fa-location-arrow" aria-hidden="true"></i><span class="min-space0">Santa Marta #52 , Lo Prado </h4>
           <br>
         </div>
 
@@ -276,6 +276,13 @@
           map: map,
 
         });
+        var info = '<h5 class="text-center"> Santa Marta #52 <br> Lo Prado</h5>';
+        var infowindow = new google.maps.InfoWindow({
+              content:info
+            });
+          infowindow.open(map,marker);
+
+
       }
     </script>
     <script async defer
